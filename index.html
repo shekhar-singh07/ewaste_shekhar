@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Shekhar Singh · E-Waste Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Theme: Cyber-Ecological Aurora — Deep Obsidian ground with Electric Cyan & Bioluminescent Emerald */
+:root{
+  color-scheme: dark;
+  --bg: #07090E;
+  --bg-surface: #0C1017;
+  --card: #101622;
+  --card-hi: #162030;
+  --card-hover: #192538;
+  --line: rgba(56, 189, 248, 0.12);
+  --line-hi: rgba(0, 242, 152, 0.35);
+  --ink: #F1F5F9;
+  --muted: #94A3B8;
+  --faint: #64748B;
+  --emerald: #00F298;
+  --cyan: #00E5FF;
+  --indigo: #818CF8;
+  --aurora: linear-gradient(135deg, #00F298 0%, #00E5FF 52%, #818CF8 100%);
+  --display: "Outfit", system-ui, -apple-system, sans-serif;
+  --body: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+*{box-sizing:border-box}
+body{
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 15px/1.65 var(--body);
+  background-image: 
+    radial-gradient(1000px 520px at 85% -5%, rgba(0, 242, 152, 0.10), transparent 60%),
+    radial-gradient(850px 480px at 10% 25%, rgba(0, 229, 255, 0.08), transparent 60%),
+    radial-gradient(1100px 650px at 50% 90%, rgba(129, 140, 248, 0.06), transparent 70%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 60px;
+  min-height: 100vh;
+}
+img{max-width:100%}
+[hidden]:not([hidden=until-found i]){display:none!important}
+.wrap{max-width:1240px;margin:0 auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--emerald);outline-offset:3px}
+.mono{font-family:var(--mono)}
+
+/* Top bar */
+.bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:22px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:14px;font:700 15px/1.2 var(--display);letter-spacing:.02em}
+.mark{
+  width:38px;height:38px;border-radius:11px;background:var(--aurora);
+  display:grid;place-items:center;color:#07090E;font:800 18px/1 var(--display);
+  box-shadow:0 0 20px rgba(0,242,152,.35);flex-shrink:0;
+}
+.brand small{display:block;color:var(--faint);font:500 11.5px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.sp{
+  font:600 13px/1 var(--body);color:var(--cyan);text-decoration:none;
+  border:1px solid rgba(0,229,255,.3);padding:10px 16px;border-radius:999px;
+  background:rgba(0,229,255,.04);backdrop-filter:blur(8px);
+  transition:all .2s ease;
+}
+.sp:hover{background:rgba(0,229,255,.12);border-color:var(--cyan);box-shadow:0 0 16px rgba(0,229,255,.25)}
+
+/* Hero Section */
+.hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:44px;align-items:center;padding-block:54px 40px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font:600 11.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--emerald);
+  padding:5px 11px;border-radius:6px;background:rgba(0,242,152,.08);border:1px solid rgba(0,242,152,.2);
+}
+h1{font:800 clamp(38px,5.8vw,68px)/1.08 var(--display);letter-spacing:-.03em;margin:20px 0 18px;text-wrap:balance;color:#FFFFFF}
+h1 em{
+  font-style:normal;font-weight:800;
+  background:var(--aurora);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 35px rgba(0,242,152,.25));
+}
+.lede{max-width:58ch;color:var(--muted);margin:0;font-size:16px;line-height:1.65}
+
+/* Student Identity Terminal */
+.id{
+  background:linear-gradient(180deg, rgba(22, 32, 48, 0.75), rgba(16, 22, 34, 0.92));
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(0, 229, 255, 0.2);
+  border-radius:22px;padding:26px 26px 24px;position:relative;overflow:hidden;
+  box-shadow:0 20px 48px -12px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+.id::before{
+  content:"";position:absolute;inset:0 0 auto 0;height:2px;
+  background:var(--aurora);box-shadow:0 0 14px var(--cyan);
+}
+.id-status{
+  display:flex;align-items:center;gap:8px;
+  font:600 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--emerald);
+  margin-bottom:12px;
+}
+.pulse-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--emerald);
+  box-shadow:0 0 10px var(--emerald);animation:pulse 2s infinite ease-in-out;
+}
+@keyframes pulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.35;transform:scale(.75)}
+}
+.id .name{
+  font:700 32px/1.1 var(--display);letter-spacing:-.02em;margin:0 0 18px;
+  color:#FFFFFF;
+}
+.id dl{
+  display:grid;grid-template-columns:auto 1fr;gap:10px 18px;margin:0;font-size:13.5px;
+  border-top:1px solid rgba(255,255,255,.07);padding-top:16px;
+}
+.id dt{font:600 11px/1.8 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.id dd{margin:0;color:var(--ink);font-weight:500}
+.badge-chip{
+  display:inline-block;padding:2px 8px;border-radius:6px;
+  background:rgba(0, 242, 152, 0.12);border:1px solid rgba(0, 242, 152, 0.28);
+  color:var(--emerald);font:600 12px/1.4 var(--mono);
+}
+
+/* Tally Cards */
+.tally{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+  margin-block:16px 28px;
+}
+.tally-card{
+  background:linear-gradient(180deg, rgba(16, 22, 34, 0.8), rgba(12, 16, 23, 0.92));
+  border:1px solid rgba(56, 189, 248, 0.14);border-radius:18px;padding:20px 24px;
+  display:flex;flex-direction:column;gap:8px;position:relative;overflow:hidden;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.tally-card:hover{
+  transform:translateY(-2px);border-color:rgba(0, 242, 152, 0.35);
+  box-shadow:0 12px 28px -8px rgba(0, 242, 152, 0.15);
+}
+.tally-card b{
+  font:700 38px/1 var(--display);letter-spacing:-.03em;
+  background:var(--aurora);-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.tally-card span{
+  font:600 11px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--muted);
+}
+
+/* Controls: Search bar + Filter Bins */
+.controls{display:flex;flex-direction:column;gap:18px;padding-block:14px 28px}
+.controls-top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.search-wrap{position:relative;width:100%;max-width:380px}
+.search-input{
+  width:100%;background:rgba(16, 22, 34, 0.85);border:1px solid rgba(56, 189, 248, 0.2);
+  border-radius:999px;padding:11px 18px 11px 42px;color:var(--ink);
+  font:500 13.5px/1.3 var(--body);outline:none;
+  transition:border-color .2s, box-shadow .2s;
+}
+.search-input:focus{
+  border-color:var(--cyan);box-shadow:0 0 18px rgba(0, 229, 255, 0.22);background:rgba(18, 25, 38, 0.95);
+}
+.search-input::placeholder{color:var(--faint)}
+.search-icon{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--faint);pointer-events:none}
+.bins{display:flex;flex-wrap:wrap;gap:8px}
+.bin{
+  font:600 12.5px/1 var(--body);border:1px solid rgba(56, 189, 248, 0.16);
+  background:rgba(16, 22, 34, 0.6);color:var(--muted);
+  padding:10px 14px;border-radius:999px;cursor:pointer;
+  display:inline-flex;gap:8px;align-items:center;
+  backdrop-filter:blur(8px);transition:all .2s ease;
+}
+.bin:hover{color:var(--ink);border-color:rgba(0, 229, 255, 0.4);background:rgba(16, 22, 34, 0.9)}
+.bin small{
+  font:600 10.5px/1 var(--mono);padding:2px 6px;border-radius:999px;
+  background:rgba(255, 255, 255, 0.06);color:var(--faint);
+}
+.bin[aria-pressed="true"]{
+  background:var(--aurora);color:#07090E;border-color:transparent;
+  box-shadow:0 4px 18px rgba(0, 242, 152, 0.3);font-weight:700;
+}
+.bin[aria-pressed="true"] small{background:rgba(7, 9, 14, 0.22);color:#07090E}
+
+/* Grid & Cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px}
+.card{
+  background:linear-gradient(180deg, rgba(18, 26, 38, 0.8), rgba(12, 17, 26, 0.95) 60%);
+  border:1px solid rgba(56, 189, 248, 0.14);border-radius:22px;
+  display:flex;flex-direction:column;overflow:hidden;min-width:0;position:relative;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+.card:hover{
+  border-color:rgba(0, 242, 152, 0.45);transform:translateY(-4px);
+  box-shadow:0 20px 40px -12px rgba(0, 242, 152, 0.16);
+}
+.thumb{aspect-ratio:16/10;max-width:100%;overflow:hidden;position:relative;background:#090C12}
+.thumb img{
+  width:100%;height:100%;object-fit:cover;object-position:top center;display:block;
+  filter:saturate(1.02) brightness(0.96);transition:transform .45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.card:hover .thumb img{transform:scale(1.04)}
+.thumb::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(7, 9, 14, 0) 35%, rgba(12, 17, 26, 0.98) 100%);
+}
+.thumb.live{
+  display:grid;place-items:center;
+  background:radial-gradient(circle at 50% 60%, rgba(0, 229, 255, 0.18), transparent 65%), #0A0E16;
+}
+.thumb.live svg{width:86px;height:86px;color:var(--cyan);opacity:.85;filter:drop-shadow(0 0 16px rgba(0,229,255,.4))}
+
+.tag{
+  position:absolute;z-index:2;top:14px;left:14px;display:inline-flex;align-items:center;gap:8px;
+  padding:6px 12px 6px 8px;border-radius:999px;background:rgba(7, 9, 14, 0.85);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(0, 242, 152, 0.35);font:600 12px/1 var(--body);color:#FFFFFF;
+  box-shadow:0 4px 14px rgba(0, 0, 0, 0.4);
+}
+.tag i{
+  font-style:normal;width:20px;height:20px;border-radius:50%;
+  background:var(--aurora);color:#07090E;display:grid;place-items:center;
+  font:700 11px/1 var(--mono);
+}
+.tag.extra{border-color:rgba(129, 140, 248, 0.4)}
+.tag.extra i{background:var(--indigo);color:#FFFFFF}
+
+.card-badge{
+  position:absolute;z-index:2;right:14px;top:14px;
+  font:700 11px/1 var(--mono);padding:5px 9px;border-radius:6px;
+  background:rgba(7, 9, 14, 0.85);border:1px solid rgba(255, 255, 255, 0.1);
+  color:var(--muted);letter-spacing:.08em;
+}
+
+.body{padding:20px 24px 24px;display:flex;flex-direction:column;gap:12px;flex:1;min-width:0}
+.cat{font:600 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
+.card h2{font:700 21px/1.26 var(--display);letter-spacing:-.015em;margin:0;color:#FFFFFF;text-wrap:balance}
+.card p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+
+/* Action buttons */
+.acts{margin-top:auto;display:grid;gap:8px;padding-top:14px}
+.act{
+  display:flex;align-items:center;gap:12px;width:100%;text-align:left;
+  border:1px solid rgba(56, 189, 248, 0.16);background:rgba(255, 255, 255, 0.02);
+  color:var(--ink);padding:11px 14px;border-radius:12px;
+  font:600 13.5px/1.25 var(--body);cursor:pointer;text-decoration:none;
+  transition:all .2s ease;
+}
+.act:hover{
+  border-color:rgba(0, 242, 152, 0.45);background:rgba(0, 242, 152, 0.05);
+  transform:translateX(2px);
+}
+.fmt{
+  font:600 10.5px/1 var(--mono);padding:5px 8px;border-radius:6px;
+  background:rgba(0, 229, 255, 0.12);color:var(--cyan);border:1px solid rgba(0, 229, 255, 0.25);
+  flex:none;min-width:48px;text-align:center;letter-spacing:.05em;
+}
+.lbl{flex:1;min-width:0;overflow-wrap:anywhere}
+.meta{font:500 11.5px/1 var(--mono);color:var(--faint);flex:none;font-variant-numeric:tabular-nums}
+
+.act.visit{
+  background:var(--aurora);border-color:transparent;color:#07090E;
+  box-shadow:0 4px 18px rgba(0, 242, 152, 0.25);
+}
+.act.visit:hover{
+  filter:brightness(1.1);box-shadow:0 6px 24px rgba(0, 242, 152, 0.45);
+  transform:translateX(2px);
+}
+.act.visit .fmt{background:rgba(7, 9, 14, 0.2);color:#07090E;border-color:rgba(7, 9, 14, 0.15)}
+.act.visit .meta{color:#07090E;font-weight:700}
+.act[data-busy]{opacity:.55;pointer-events:none}
+.act[data-busy] .meta::before{content:"Preparing… "}
+
+/* Empty state */
+.empty{grid-column:1/-1;text-align:center;padding:50px 20px;color:var(--muted);font-size:15px}
+
+/* Footer & Toast */
+footer{
+  margin-top:64px;padding-top:24px;border-top:1px solid var(--line);
+  font-size:13px;color:var(--faint);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;
+}
+.toast{
+  position:fixed;z-index:100;left:50%;transform:translateX(-50%);
+  bottom:calc(24px + env(safe-area-inset-bottom,0px));
+  background:rgba(18, 26, 38, 0.95);backdrop-filter:blur(16px);
+  border:1px solid rgba(0, 242, 152, 0.4);color:#FFFFFF;padding:12px 20px;
+  border-radius:12px;font:500 13.5px var(--body);box-shadow:0 12px 36px rgba(0, 0, 0, 0.6);
+  max-width:calc(100% - 32px);
+}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:32px;padding-block:36px 28px}
+  .tally{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .controls-top{flex-direction:column;align-items:stretch}
+  .search-wrap{max-width:100%}
+}
+@media (max-width:440px){
+  .grid{grid-template-columns:1fr}
+  .tally{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="bar">
+    <div class="brand">
+      <span class="mark">⚡</span>
+      <span>E-Waste Portfolio<small>Shekhar Singh · AY 2026–27</small></span>
+    </div>
+    <a class="sp" href="https://viteduin59337.sharepoint.com/:u:/s/TE_SEM5_EWASTE/IQCM1I6wTdaMQJGN383hgC41AbTwAyGM03vplpoPEl77laI" target="_blank" rel="noopener">Class SharePoint ↗</a>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Academic Coursework · AY 2026–27</div>
+      <h1>Electronic Waste Management &amp; the <em>Circular Economy</em></h1>
+      <p class="lede">State trackers, circular engineering, compliance audits, green building scorecards, case studies, and research gathered in one unified portfolio. Download submissions directly or launch live interactive dashboards.</p>
+    </div>
+    <aside class="id" aria-label="Student details">
+      <div class="id-status"><span class="pulse-dot"></span> Verified Scholar Terminal</div>
+      <div class="name">Shekhar Singh</div>
+      <dl>
+        <dt>Roll no.</dt><dd><span class="badge-chip">24102A0050</span></dd>
+        <dt>Class</dt><dd>TY CO · CMPN A</dd>
+        <dt>Dept.</dt><dd>Computer Engineering</dd>
+        <dt>College</dt><dd>Vidyalankar Institute of Technology, Wadala, Mumbai</dd>
+      </dl>
+    </aside>
+  </section>
+
+  <section class="tally" id="tally" aria-label="Summary"></section>
+
+  <section class="controls" aria-label="Controls and filters">
+    <div class="controls-top">
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" id="search-input" class="search-input" placeholder="Search assignments, topics, or files…" aria-label="Search assignments">
+      </div>
+    </div>
+    <nav class="bins" id="bins" aria-label="Filter by category"></nav>
+  </section>
+
+  <main class="grid" id="grid"></main>
+
+  <footer>
+    <span>Shekhar Singh · 24102A0050 · CMPN A</span>
+    <span>E-Waste Management &amp; Circular Economy · Vidyalankar Institute of Technology</span>
+  </footer>
+</div>
+
+<div class="toast" id="toast" hidden role="status"></div>
+
+<script>
+const LOTS=[
+ {n:0,cat:"Course Orientation",title:"Course Insights",thumb:"A0_Course_Insights",
+  sum:"Maps the course onto VIT's autonomous curriculum: its bucket, credits (2 theory + 1 practical), prerequisites, course outcomes and their mapping to programme outcomes.",
+  files:[["A0_Course_Insights.pdf","3 pages"]]},
+ {n:1,cat:"State Trackers & Policy",title:"E-Waste in Goa: The Hidden Cost of a Digital Paradise",thumb:"Goa_EWaste_Briefing",
+  sum:"Policy briefing and slide deck on Goa. Roughly 7,000 t of scheduled e-waste a year against about 570 t collected (GSPCB 2019–20), read against the state's 2024 E-Waste Management Policy.",
+  files:[["EWaste_Goa_Deck.pptx","11 slides"]]},
+ {n:2,cat:"State Trackers & Policy",title:"Uttar Pradesh State E-Waste Report & Scorecard",thumb:"UP_EWaste_Report",
+  sum:"FY 2025–26 assessment across seven indicators, from inventory and collection to informal-sector integration. The report rates UP 44.5 / 100 (Critical); the workbook recalculates the score from weighted categories.",
+  links:[["https://simple-story-stats.lovable.app/?classId=00895ab0-667b-4c7a-9f41-0531511b5f18&assignmentId=b6472909-a7e3-4012-b9e6-13e01162f1a8&submissionId=aaf0b437-9185-097b-e63f-afab3360e27e","Visit live scorecard dashboard"]],
+  files:[["UP_EWaste_Report.pdf","7 pages"],["UP_EWaste_Scorecard.xlsx","2 sheets"]]},
+ {n:3,cat:"State Trackers & Policy",title:"Tamil Nadu: E-Waste Signature vs Urban Background",thumb:"Tamil_Nadu_Diagnostic",
+  sum:"Log-scale comparison of PBDEs, PCBs, SCCPs and metals at e-waste hotspots against Tamil Nadu urban baselines. Copper reaches 1,250 µg/g against a 10–80 µg/g baseline.",
+  files:[["Tamil_Nadu_Diagnostic.jpg","Infographic"]]},
+ {n:4,cat:"Circular Engineering",title:"Hydrothermal Buffering",thumb:"Hydrothermal_Buffering",
+  sum:"How hot, mineral-rich fluids buffer pH and redox to concentrate gold, copper, zinc and rare earths, and what that natural process suggests for sustainable metal recovery.",
+  files:[["Hydrothermal_Buffering.pdf","1-page poster"]]},
+ {n:5,cat:"Corporate Compliance",title:"E-Waste Compliance Gaps & Traceability Opportunities",thumb:"EWaste_Compliance_Gaps",
+  sum:"Reviews public disclosures from Sahasra, Centum, Avalon, Tata Electronics and Dixon for EPR evidence and recycler traceability, then proposes a digital audit-trail platform.",
+  files:[["EWaste_Compliance_Gaps.pdf","2 pages"]]},
+ {n:6,cat:"Global Regulations",title:"Global E-Waste Management Rules",thumb:"Global_EWaste_Rules",
+  sum:"India, the United States, Australia, Japan and Russia compared on recycling quotas, take-back programmes, landfill bans and producer compliance paths.",
+  links:[["https://spontaneous-conkies-aad70f.netlify.app/","Visit Reclaim Atlas 3D globe"]],
+  files:[["Global_EWaste_Rules.pdf","1 page"]]},
+ {n:7,cat:"College Campaign & Ideas",title:"REBOOT: Repair More. Waste Less.",thumb:"REBOOT_Pitch",
+  sum:"College pitch for a platform linking device owners with verified technicians, recovered spare parts and certified recyclers, paired with an awareness poster on where discarded electronics end up.",
+  files:[["REBOOT_Pitch.pptx","5 slides"],["Where_Does_Your_EWaste_Go.jpg","Poster"]]},
+ {n:8,cat:"LEED Green Buildings",title:"Green Building Scorecard",thumb:"LEED_Green_Buildings_Scorecard",
+  sum:"Ten LEED, IGBC and GRIHA certified buildings in India scored out of 60 on six criteria. Suzlon One Earth and Indira Paryavaran Bhawan top the table at 59 / 60.",
+  links:[["files/green_building_scorecard.html","Open interactive scorecard dashboard"]],
+  files:[["LEED_Green_Buildings_Scorecard.xlsx","4 sheets"]]},
+ {n:9,cat:"Global Case Studies",title:"MSE 2 Case Studies: Recycling & Circular Economy",thumb:"MSE2_Case_Study_Report",
+  sum:"Five cases: Japan's recycling system, Switzerland's take-back model, India's E-Waste Rules 2022, whether India's EPR is real or paper compliance, and Bengaluru as an e-waste capital.",
+  files:[["MSE2_Case_Study_Report.pdf","22 pages"],["Case_Studies.pptx","5 slides"]]},
+ {n:10,cat:"IEEE Research Track",title:"AI-Driven Retail Demand Forecasting & Inventory Recommendation",thumb:"IEEE_Research_Paper",
+  sum:"Hybrid time-series model selection (SARIMA, Prophet, LSTM) evaluated on the FreshRetailNet-50K dataset across 898 stores and 865 SKUs to optimize automated inventory reordering.",
+  files:[["IEEE_Research_Paper.pdf","5 pages"]]},
+ {n:null,cat:"Live Tools",title:"Interactive E-Waste Artifact",
+  sum:"Interactive page published from Claude as a companion to the coursework. Opens in a new tab.",
+  links:[["https://claude.ai/public/artifacts/d1de9be5-07df-48ee-b698-caaa40e7fd78","Visit interactive artifact"]]}
+];
+
+const SIZES={"A0_Course_Insights.pdf":211638,"EWaste_Goa_Deck.pptx":2388598,"UP_EWaste_Report.pdf":4187724,"UP_EWaste_Scorecard.xlsx":23292,"Tamil_Nadu_Diagnostic.jpg":510394,"Hydrothermal_Buffering.pdf":2834889,"EWaste_Compliance_Gaps.pdf":72195,"Global_EWaste_Rules.pdf":267799,"REBOOT_Pitch.pptx":1370385,"Where_Does_Your_EWaste_Go.jpg":614869,"LEED_Green_Buildings_Scorecard.xlsx":21442,"MSE2_Case_Study_Report.pdf":569096,"Case_Studies.pptx":58663,"IEEE_Research_Paper.pdf":198256};
+const LABEL={pdf:"Download PDF",pptx:"Download slides",xlsx:"Download workbook",jpg:"Download image"};
+const kb=n=>n>=1048576?(n/1048576).toFixed(1)+" MB":Math.round(n/1024)+" KB";
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pad=n=>String(n).padStart(2,"0");
+const GLOBE='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M4.5 7.5h15M4.5 16.5h15"/></svg>';
+
+const numbered=LOTS.filter(l=>l.n!==null).length;
+const nFiles=LOTS.reduce((a,l)=>a+(l.files||[]).length,0);
+const nLinks=LOTS.reduce((a,l)=>a+(l.links||[]).length,0);
+const cats=[...new Set(LOTS.map(l=>l.cat))];
+
+document.getElementById("tally").innerHTML=[
+  [numbered,"Assignments"],
+  [nFiles,"Files to download"],
+  [nLinks,"Live sites"],
+  [cats.length,"Categories"]
+].map(([n,t])=>`<div class="tally-card"><b>${pad(n)}</b><span>${t}</span></div>`).join("");
+
+let curCat="All";
+let curQuery="";
+
+try{
+  const s=localStorage.getItem("ew-bin-shekhar");
+  if(s&&(s==="All"||cats.includes(s)))curCat=s;
+}catch(e){}
+
+function renderBins(){
+  document.getElementById("bins").innerHTML=["All",...cats].map(c=>{
+    const n=c==="All"?LOTS.length:LOTS.filter(l=>l.cat===c).length;
+    return `<button class="bin" data-c="${esc(c)}" aria-pressed="${c===curCat}">${esc(c==="All"?"All submissions":c)} <small>${n}</small></button>`;
+  }).join("");
+}
+
+function renderGrid(){
+  const filtered = LOTS.filter(l => {
+    if (curCat !== "All" && l.cat !== curCat) return false;
+    if (curQuery) {
+      const q = curQuery.toLowerCase();
+      const inTitle = (l.title || "").toLowerCase().includes(q);
+      const inCat = (l.cat || "").toLowerCase().includes(q);
+      const inSum = (l.sum || "").toLowerCase().includes(q);
+      const inFiles = (l.files || []).some(([f]) => f.toLowerCase().includes(q));
+      if (!inTitle && !inCat && !inSum && !inFiles) return false;
+    }
+    return true;
+  });
+
+  if (filtered.length === 0) {
+    document.getElementById("grid").innerHTML = `<div class="empty">No submissions match "${esc(curQuery)}" in this category.</div>`;
+    return;
+  }
+
+  document.getElementById("grid").innerHTML = filtered.map(l=>{
+    const tag = l.n!==null ? `<span class="tag"><i>${l.n}</i>Assignment ${l.n}</span>` : `<span class="tag extra"><i>+</i>Extra</span>`;
+    const badge = l.n!==null ? `<span class="card-badge">LOT ${pad(l.n)}</span>` : "";
+    const thumb = l.thumb
+      ? `<div class="thumb">${tag}${badge}<img src="thumbs/${l.thumb}.jpg" alt="Preview of ${esc(l.title)}" loading="lazy"></div>`
+      : `<div class="thumb live">${tag}${badge}${GLOBE}</div>`;
+    const links = (l.links||[]).map(([u,t])=>`<a class="act visit" href="${esc(u)}" target="_blank" rel="noopener"><span class="fmt">LIVE</span><span class="lbl">${esc(t)}</span><span class="meta">↗</span></a>`).join("");
+    const files = (l.files||[]).map(([f,m])=>{
+      const ext = f.split(".").pop();
+      return `<button class="act dl" data-f="${f}"><span class="fmt">${ext.toUpperCase()}</span><span class="lbl">${LABEL[ext]}</span><span class="meta">${m} · ${kb(SIZES[f]||0)}</span></button>`;
+    }).join("");
+    return `<article class="card" id="a${l.n??"x"}">${thumb}<div class="body"><div class="cat">${esc(l.cat)}</div><h2>${esc(l.title)}</h2><p>${esc(l.sum)}</p><div class="acts">${links}${files}</div></div></article>`;
+  }).join("");
+}
+
+renderBins();
+renderGrid();
+
+document.getElementById("bins").addEventListener("click", e=>{
+  const b=e.target.closest(".bin");
+  if(!b)return;
+  curCat=b.dataset.c;
+  try{localStorage.setItem("ew-bin-shekhar",curCat)}catch(err){}
+  renderBins();
+  renderGrid();
+});
+
+document.getElementById("search-input").addEventListener("input", e=>{
+  curQuery=e.target.value.trim();
+  renderGrid();
+});
+
+let tt;
+function toast(m){
+  const t=document.getElementById("toast");
+  t.textContent=m;
+  t.hidden=false;
+  clearTimeout(tt);
+  tt=setTimeout(()=>t.hidden=true,3400);
+}
+
+let dlp=null;
+function getDl(){
+  if(!dlp) dlp=window.claude?.use ? window.claude.use("downloads").catch(()=>null) : Promise.resolve(null);
+  return dlp;
+}
+
+document.getElementById("grid").addEventListener("click", async e=>{
+  const b=e.target.closest(".dl");
+  if(!b)return;
+  const f=b.dataset.f;
+  b.dataset.busy="";
+  try{
+    const dl=await getDl();
+    const packed=/\.(pptx|xlsx)$/.test(f);
+    let blob;
+    try{
+      const r=await fetch(packed?"packed/"+f+".b64.txt":"files/"+f);
+      if(!r.ok)throw new Error("HTTP "+r.status);
+      if(packed){
+        const s=atob((await r.text()).trim());
+        const u=new Uint8Array(s.length);
+        for(let i=0;i<s.length;i++) u[i]=s.charCodeAt(i);
+        blob=new Blob([u]);
+      } else {
+        blob=await r.blob();
+      }
+    }catch(err){
+      const r2=await fetch("files/"+f);
+      if(!r2.ok)throw {message:"File not found."};
+      blob=await r2.blob();
+    }
+
+    if(dl && typeof dl.save === "function"){
+      await dl.save({filename:f, data:blob});
+    } else {
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement("a");
+      a.href=url;
+      a.download=f;
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(()=>{document.body.removeChild(a);URL.revokeObjectURL(url);},2000);
+    }
+    toast("Saved "+f);
+  }catch(err){
+    if(err&&err.code==="declined")return;
+    if(err&&err.code==="rate_limited"){toast("A save prompt is already open. Finish that one first.");return}
+    toast("Couldn't save "+f+". "+(err&&err.message?err.message:"Try again."));
+  }finally{
+    delete b.dataset.busy;
+  }
+});
+</script>
+
+</body>
+</html>
